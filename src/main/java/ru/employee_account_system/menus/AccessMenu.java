@@ -17,8 +17,8 @@ public class AccessMenu {
     }
     public static void inLogin(){
         Access accessList = new Access();
-        accessList.addAccess("admin", "admin");
-        accessList.addAccess("operator","operator");
+       accessList.addUser("admin", "admin",Access.AccessType.ADMIN);
+       accessList.addUser("operator","operator",Access.AccessType.OPERATOR);
         while (true) {
             printSeparator("-");
             printSeparator("|");
@@ -28,6 +28,7 @@ public class AccessMenu {
             System.out.print("\n Введите пароль: ");
             String password = in.next();
             if(accessList.isAccess(login,password)){
+                System.out.println("Ура");
                 break;
             }
             System.out.println("Неверный пользователь или пароль! Попробуйте еще раз!");

@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ru.employee_account_system.menus.AccessTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-01-17T10:50:56" hostname="LAPTOP-OS992FP0" time="0.019">
-  <properties/>
-  <testcase name="test_that_login_is_correct()" classname="ru.employee_account_system.menus.AccessTest" time="0.019"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
