@@ -28,7 +28,6 @@ public class AccessMenu {
             System.out.print("\n Введите пароль: ");
             String password = in.next();
             if(accessList.isAccess(login,password)){
-                System.out.println("Ура");
                 break;
             }
             System.out.println("Неверный пользователь или пароль! Попробуйте еще раз!");

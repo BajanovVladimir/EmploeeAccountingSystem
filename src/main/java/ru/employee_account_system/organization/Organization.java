@@ -1,4 +1,4 @@
-package ru.employee_account_system;
+package ru.employee_account_system.organization;
 
 import java.util.HashMap;
 import java.util.HashSet;
