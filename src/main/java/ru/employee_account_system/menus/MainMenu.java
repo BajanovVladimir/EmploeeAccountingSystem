@@ -11,6 +11,9 @@ public class MainMenu {
     public static void isMainMenuPrint(Organization organization,Access.AccessType accessType){
         Boolean exit = false;
         while (!exit){
+            MenuUtils.printSeparator("-");
+            MenuUtils.printSeparator("|");
+            MenuUtils.printSeparator("-");
             Scanner in = new Scanner(System.in);
             System.out.println("Выбирете действие:");
             System.out.println();

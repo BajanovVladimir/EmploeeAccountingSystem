@@ -9,4 +9,12 @@ public class MenuUtils {
         }
         return -1;
     }
+
+    public static void printSeparator(String separator) {
+        final int numberOfSeparatorsElements = 90;
+        System.out.println();
+        for (int i = 0; i < numberOfSeparatorsElements; i++) {
+            System.out.print(separator);
+        }
+    }
 }

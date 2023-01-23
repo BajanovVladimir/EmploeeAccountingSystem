@@ -9,6 +9,9 @@ public class EmployeesMenu {
     public static void isEmployeeMenuPrint() {
 
         while (true) {
+            MenuUtils.printSeparator("-");
+            MenuUtils.printSeparator("|");
+            MenuUtils.printSeparator("-");
             System.out.println("Выбирите действие:");
             System.out.println("1 - Задать нового сотрудника");
             System.out.println("2 - Редактировать сотрудника");

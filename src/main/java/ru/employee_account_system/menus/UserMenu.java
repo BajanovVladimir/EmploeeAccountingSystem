@@ -3,6 +3,7 @@ package ru.employee_account_system.menus;
 import ru.employee_account_system.access.Access;
 import ru.employee_account_system.constants.Constants;
 import ru.employee_account_system.utils.ListUtils;
+import ru.employee_account_system.utils.MenuUtils;
 
 import java.util.Scanner;
 
@@ -10,12 +11,16 @@ public class UserMenu {
 
     public static void userMenuPrint(Access accessList) {
         while (true) {
+            MenuUtils.printSeparator("-");
+            MenuUtils.printSeparator("|");
+            MenuUtils.printSeparator("-");
             Scanner in = new Scanner(System.in);
             System.out.println("Выбирете действие:");
             System.out.println();
             System.out.println("1 - создать пользователя");
             System.out.println("2 - сменить пароль");
-            System.out.println("3 - вывести пользователей на экран");
+            System.out.println("3 - удалить пользователя");
+            System.out.println("4 - вывести пользователей на экран");
             System.out.println("esc - для выхода ");
             String action = in.next();
             if(action.equals(Constants.ESC)){
@@ -33,8 +38,16 @@ public class UserMenu {
                     break;
                 }
                 case "2":
-                case "3": {
+                case "3":{
+                    removeUserMenu(accessList);
+                    break;
+                }
+                case "4": {
                     ListUtils.printMap(accessList.getAccessMap(), System.out);
+                    Scanner in = new Scanner(System.in);
+                    System.out.print("Для продолжения введите любой символ:  ");
+                    String act = in.next();
+                    System.out.println();
                     break;
                 }
         }
@@ -52,6 +65,32 @@ public class UserMenu {
                 }
             }
             return null;
+    }
+    public static void  removeUserMenu(Access accessList){
+        while (true){
+            Scanner in = new Scanner(System.in);
+            System.out.print("Удаление пользователя(для выхода из меню введите esc)\n введите пользователя: ");
+            String login = in.next();
+            if(login.equals(Constants.ESC)){
+                break;
+            }
+            System.out.println();
+            if(accessList.userIsFound(login)){
+                System.out.println("Пользователь найден. Удалить пользователя?");
+                System.out.println("да - удалить");
+                System.out.println("любой символ - отменить удаление");
+                String action = in.next();
+                switch (action){
+                    case "да": {
+                        accessList.removeUser(login);
+                        System.out.println("Пользователь удален!");
+                    }
+                }
+                break;
+            } else {
+                System.out.println("Пользователь не найден.  Попробуйте снова!");
+            }
+        }
     }
     public static  void addUserMenu(Access accessList) {
         Scanner in = new Scanner(System.in);

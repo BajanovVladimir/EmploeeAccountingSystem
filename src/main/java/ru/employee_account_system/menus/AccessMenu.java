@@ -3,20 +3,11 @@ package ru.employee_account_system.menus;
 import ru.employee_account_system.access.Access;
 import ru.employee_account_system.constants.Constants;
 import ru.employee_account_system.organization.Organization;
+import ru.employee_account_system.utils.MenuUtils;
 
 import java.util.Scanner;
 
 public class AccessMenu {
-
-    static final int numberOfSeparatorsElements = 90;
-
-    public static void printSeparator(String separator) {
-        System.out.println();
-        for (int i = 0; i < numberOfSeparatorsElements; i++) {
-            System.out.print(separator);
-        }
-
-    }
 
     public static void inLogin(Organization organization) {
         Access accessList = organization.getAccessMap();
@@ -24,9 +15,9 @@ public class AccessMenu {
         organization.getAccessMap().addUser("operator", "operator", Access.AccessType.OPERATOR);
         String login;
         while (true) {
-            printSeparator("-");
-            printSeparator("|");
-            printSeparator("-");
+            MenuUtils.printSeparator("-");
+            MenuUtils.printSeparator("|");
+            MenuUtils.printSeparator("-");
             System.out.println(" \nВедите пользователя и пароль( для выхода из программы введите esc)");
             Scanner in = new Scanner(System.in);
             System.out.print("\n Введите пользователя: ");

@@ -3,12 +3,16 @@ package ru.employee_account_system.menus;
 import ru.employee_account_system.constants.Constants;
 import ru.employee_account_system.employees.Employee;
 import ru.employee_account_system.employees.Person;
+import ru.employee_account_system.utils.MenuUtils;
 
 import java.util.Scanner;
 
 public class NewEmployeeMenu {
     public static void isNewNameMenu(){
         while (true) {
+            MenuUtils.printSeparator("-");
+            MenuUtils.printSeparator("|");
+            MenuUtils.printSeparator("-");
             System.out.print("фамилия:");
             Scanner in = new Scanner(System.in);
             String lastName = in.next();
