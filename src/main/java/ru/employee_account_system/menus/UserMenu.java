@@ -15,7 +15,7 @@ public class UserMenu {
             MenuUtils.printSeparator("|");
             MenuUtils.printSeparator("-");
             Scanner in = new Scanner(System.in);
-            System.out.println("Выбирете действие:");
+            System.out.println("выбирете действие:");
             System.out.println();
             System.out.println("1 - создать пользователя");
             System.out.println("2 - сменить пароль");
@@ -23,68 +23,60 @@ public class UserMenu {
             System.out.println("4 - вывести пользователей на экран");
             System.out.println("esc - для выхода ");
             String action = in.next();
-            if(action.equals(Constants.ESC)){
-                break;
-            }else {
-                isAction(action,accessList);
-                break;
+            if (!action.equals(Constants.ESC)) {
+                isAction(action, accessList);
             }
+            break;
         }
     }
-    private static void isAction(String action,Access accessList){
-            switch (action){
-                case "1": {
-                    addUserMenu(accessList);
-                    break;
-                }
-                case "2":
-                case "3":{
-                    removeUserMenu(accessList);
-                    break;
-                }
-                case "4": {
+
+    private static void isAction(String action, Access accessList) {
+        switch (action) {
+            case "1" -> addUserMenu(accessList);
+            case "2" -> changePasswordMenu(accessList);
+            case "3" -> removeUserMenu(accessList);
+            case "4" -> {
                     ListUtils.printMap(accessList.getAccessMap(), System.out);
                     Scanner in = new Scanner(System.in);
-                    System.out.print("Для продолжения введите любой символ:  ");
+                    System.out.print("для продолжения введите любой символ:  ");
                     String act = in.next();
                     System.out.println();
-                    break;
                 }
         }
     }
-    public static Access.AccessType setAccessType(String accessType){
-            switch (accessType) {
-                case "1": {
-                    return Access.AccessType.ADMIN;
-                }
-                case "2": {
-                    return Access.AccessType.OPERATOR;
-                }
-                case "3": {
-                    return Access.AccessType.USER;
-                }
+
+    public static Access.AccessType setAccessType(String accessType) {
+        switch (accessType) {
+            case "1" -> {
+                return Access.AccessType.ADMIN;
             }
-            return null;
+            case "2" -> {
+                return Access.AccessType.OPERATOR;
+            }
+            case "3" -> {
+                return Access.AccessType.USER;
+            }
+        }
+        return null;
     }
-    public static void  removeUserMenu(Access accessList){
-        while (true){
+
+    public static void removeUserMenu(Access accessList) {
+        while (true) {
             Scanner in = new Scanner(System.in);
-            System.out.print("Удаление пользователя(для выхода из меню введите esc)\n введите пользователя: ");
+            System.out.print("удаление пользователя(для выхода из меню введите esc)\n введите пользователя: ");
             String login = in.next();
-            if(login.equals(Constants.ESC)){
+            if (login.equals(Constants.ESC)) {
                 break;
             }
             System.out.println();
-            if(accessList.userIsFound(login)){
-                System.out.println("Пользователь найден. Удалить пользователя?");
+            if (accessList.userIsFound(login)) {
+                System.out.println("пользователь найден. удалить пользователя?");
                 System.out.println("да - удалить");
                 System.out.println("любой символ - отменить удаление");
                 String action = in.next();
-                switch (action){
-                    case "да": {
-                        accessList.removeUser(login);
-                        System.out.println("Пользователь удален!");
-                    }
+                if ("да".equals(action)) {
+                    accessList.removeUser(login);
+                    System.out.println("пользователь удален!");
                 }
                 break;
             } else {
@@ -92,7 +84,35 @@ public class UserMenu {
             }
         }
     }
-    public static  void addUserMenu(Access accessList) {
+
+    public static void changePasswordMenu(Access accessList){
+        while (true) {
+            Scanner in = new Scanner(System.in);
+            System.out.print("изменить пароль (для выхода из меню введите esc)\n введите пользователя: ");
+            String login = in.next();
+            if (login.equals(Constants.ESC)) {
+                break;
+            }
+            System.out.println();
+            if (accessList.userIsFound(login)) {
+                System.out.println("пользователь найден. изменить пароль?");
+                System.out.println("да - изменить");
+                System.out.println("любой символ - отменить изменение");
+                String action = in.next();
+                if ("да".equals(action)) {
+                    System.out.print("Введите новый пароль: ");
+                    String newPassword = in.next();
+                    accessList.changeUserPassword(login,newPassword);
+                    System.out.println("пароль изменен!");
+                }
+                break;
+            } else {
+                System.out.println("Пользователь не найден.  Попробуйте снова!");
+            }
+        }
+    }
+
+    public static void addUserMenu(Access accessList) {
         Scanner in = new Scanner(System.in);
         String accessType;
         Access.AccessType type;
@@ -104,18 +124,17 @@ public class UserMenu {
             accessType = in.next();
             type = setAccessType(accessType);
         } while (type == null);
-        System.out.print("\n Введите логин: ");
-        String login= in.next();
-        System.out.print("\n Введите пароль: ");
-        String password= in.next();
-        while(true) {
-            System.out.print("\n Повторите пароль: ");
+        System.out.print("\n введите логин: ");
+        String login = in.next();
+        System.out.print("\n введите пароль: ");
+        String password = in.next();
+        while (true) {
+            System.out.print("\n повторите пароль: ");
             String repeatPassword = in.next();
-            if(password.equals(repeatPassword)){
-                accessList.addUser(login,password,type);
+            if (password.equals(repeatPassword)) {
+                accessList.addUser(login, password, type);
                 break;
             }
         }
-
     }
 }

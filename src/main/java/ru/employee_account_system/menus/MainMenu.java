@@ -15,12 +15,12 @@ public class MainMenu {
             MenuUtils.printSeparator("|");
             MenuUtils.printSeparator("-");
             Scanner in = new Scanner(System.in);
-            System.out.println("Выбирете действие:");
+            System.out.println("выбирете действие:");
             System.out.println();
-            System.out.println("1 - Сотрудники");
+            System.out.println("1 - сотрудники");
             System.out.println("2 - ");
             if(Access.AccessType.ADMIN.name().equals(accessType.name())) {
-                System.out.println("3 - Пользователи");
+                System.out.println("3 - пользователи");
             }
             System.out.println("4 - сменить пользователя");
             System.out.println("esc - для выхода ");

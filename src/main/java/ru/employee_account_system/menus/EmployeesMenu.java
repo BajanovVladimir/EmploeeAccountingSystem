@@ -12,10 +12,10 @@ public class EmployeesMenu {
             MenuUtils.printSeparator("-");
             MenuUtils.printSeparator("|");
             MenuUtils.printSeparator("-");
-            System.out.println("Выбирите действие:");
-            System.out.println("1 - Задать нового сотрудника");
-            System.out.println("2 - Редактировать сотрудника");
-            System.out.println("esc - Для выхода в основное меню");
+            System.out.println("выбирите действие:");
+            System.out.println("1 - задать нового сотрудника");
+            System.out.println("2 - редактировать данные");
+            System.out.println("esc - для выхода в основное меню");
             Scanner in = new Scanner(System.in);
             System.out.print("\n");
             String action = in.next();

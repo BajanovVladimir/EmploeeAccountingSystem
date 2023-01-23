@@ -5,6 +5,7 @@ import ru.employee_account_system.employees.Employee;
 import ru.employee_account_system.employees.Person;
 import ru.employee_account_system.utils.MenuUtils;
 
+import javax.xml.crypto.Data;
 import java.util.Scanner;
 
 public class NewEmployeeMenu {
@@ -22,11 +23,13 @@ public class NewEmployeeMenu {
             String patronymic = in.next();
             System.out.println("\nпол: ");
             System.out.println("м - мужской\n ж - женский");
-            System.out.print("\n");
             String gender = in.next();
-            System.out.println("номер телефона");
-            System.out.print("\n");
+            System.out.print("\nдата рождения");
+            String dataOfBirth = in.next();
+            System.out.print("\nномер телефона");
             String phoneNumber = in.next();
+            System.out.println("\nдата принятия на работу");
+            String dataOfEmployment = in.next();
             System.out.println("для сохранения данных  введите любой символ");
             System.out.println("esc - для выхода в главное меню");
             String action = in.next();
@@ -35,8 +38,8 @@ public class NewEmployeeMenu {
             } else {
                 Person.Gender personGender = isGender(gender);
                 Person.Name name = new Person.Name(lastName, firstName, patronymic);
-                Person person = new Person(name,"12.03.1985",personGender);
-                Employee employee = new Employee(person,"13.14.1981","Бухгалтерия","Бухгалтер",54000);
+                Person person = new Person(name,dataOfBirth,personGender);
+                Employee employee = new Employee(person,dataOfEmployment,"Бухгалтерия","Бухгалтер",54000);
                 System.out.println(employee.toString());
                 String str = in.next();
                 break;
