@@ -1,24 +1,29 @@
 package ru.employee_account_system.menus;
 
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import ru.employee_account_system.employees.Employee;
-import ru.employee_account_system.employees.Person;
 import ru.employee_account_system.organization.Department;
 import ru.employee_account_system.organization.Organization;
 
 public class DepartmentTests {
     @Test
-    public  void test() {
-        Organization.Position pos1 = new Organization.Position("бухгалтер", 100000);
-        Person pers1 = new Person(new Person.Name("Петров", "Петр", "Александрович"), "12.03.1985", Person.Gender.MEN);
-        Person pers2 = new Person(new Person.Name("Сидорова", "Ольга", "Петровна"), "15.05.1987", Person.Gender.WOMEN);
-        Employee emp1 = new Employee(pers1, "01.02.2022", "Бухгалтерия", "бухгалтер");
-        Employee emp2 = new Employee(pers2, "01.02.2022", "Бухгалтерия", "бухгалтер");
-        Department dep1 = new Department();
-        dep1.addPosition(pos1,emp1);
-         Organization.Position pos = dep1.getPosition(emp1);
-        Assertions.assertEquals(100000,pos.getPay());
+    public  void test_that_department_is_created() {
+        Department.Position position = new Department.Position("инженер");
+        Department department = new Department("Отдел разработки");
+        department.createDepartmentPosition(position,2);
+        Assertions.assertEquals(1,department.getDepartmentPositions().size());
+        Assertions.assertTrue(department.getDepartmentPositions().containsKey(position));
+    }
+    @Test
+    public  void test_that_department_is_() {
+        Department.Position position1 = new Department.Position("Главный инженер");
+        Department department1 = new Department("Отдел главного инженера");
+        Department.Position position2 = new Department.Position("инженер",position1 );
+        Department department2 = new Department("Отдел разработки",department1);
+        department1.createDepartmentPosition(position1,1);
+        department2.createDepartmentPosition(position2,2);
+        Assertions.assertEquals("Отдел главного инженера", department2.getPreChief().getNameOfDepartment());
     }
 
 }

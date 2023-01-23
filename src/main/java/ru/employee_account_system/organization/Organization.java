@@ -1,15 +1,15 @@
 package ru.employee_account_system.organization;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import ru.employee_account_system.access.Access;
+
+import java.util.*;
 
 public class Organization {
-    Map<Position,Integer> department = new HashMap<>();
-    Set<String> departmentSet = new HashSet<>();
+   private Map<Position,Integer> department = new HashMap<>();
+   private Access accessMap = new Access();
+    List<String> departmentList = new LinkedList<>();
     public void addDepartment(String department){
-        departmentSet.add(department);
+        departmentList.add(department);
     }
     public static class Position{
         private final String nameOfPosition;
@@ -33,4 +33,19 @@ public class Organization {
         }
     }
 
+    public Map<Position, Integer> getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Map<Position, Integer> department) {
+        this.department = department;
+    }
+
+    public Access getAccessMap() {
+        return accessMap;
+    }
+
+    public void setAccessMap(Access accessMap) {
+        this.accessMap = accessMap;
+    }
 }

@@ -1,4 +1,4 @@
-package ru.employee_account_system.menus;
+package ru.employee_account_system.utils;
 //надо будет доделать
 public class MenuUtils {
     public static int stringToInt(String str){

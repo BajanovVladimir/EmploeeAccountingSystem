@@ -32,7 +32,7 @@ public class NewEmployeeMenu {
                 Person.Gender personGender = isGender(gender);
                 Person.Name name = new Person.Name(lastName, firstName, patronymic);
                 Person person = new Person(name,"12.03.1985",personGender);
-                Employee employee = new Employee(person,"13.14.1981","Бухгалтерия","Бухгалтер");
+                Employee employee = new Employee(person,"13.14.1981","Бухгалтерия","Бухгалтер",54000);
                 System.out.println(employee.toString());
                 String str = in.next();
                 break;

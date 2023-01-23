@@ -1,17 +1,19 @@
 package ru.employee_account_system.employees;
 
 public class Employee extends Person {
-    private final String dateOfEmployement;
+    private final String dateOfEmployment;
     private String department;
     private  String position;
     private final Person person;
+    private  double pay;
 
-    public Employee(Person person,String dateOfEmployement,String department,String position) {
+    public Employee(Person person,String dateOfEmployement,String department,String position,double pay) {
         super(person.getPersonName(),person.getDateOfBirth(),person.getGender());
         this.person = person;
-        this.dateOfEmployement = dateOfEmployement;
+        this.dateOfEmployment = dateOfEmployement;
         this.department = department;
         this.position = position;
+        this.pay = pay;
     }
 
     public String getDepartment() {
@@ -35,6 +37,6 @@ public class Employee extends Person {
         return this.person+"\n"
                 + "отдел: " + this.department + "\n"
                 + "должность: " +this.position + "\n"
-                + "дата приема на работу: " + this.dateOfEmployement;
+                + "дата приема на работу: " + this.dateOfEmployment;
     }
 }
