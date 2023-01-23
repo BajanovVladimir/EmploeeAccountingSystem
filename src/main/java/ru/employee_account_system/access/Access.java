@@ -16,9 +16,9 @@ public class Access {
     public static class User{
         private final String login;
         private String password;
-        private Enum accessType;
+        private AccessType accessType;
 
-         User(String login,String password,Enum accessType){
+         User(String login,String password,AccessType accessType){
              this.login = login;
              this.password = password;
              this.accessType = accessType;
@@ -28,7 +28,7 @@ public class Access {
             return password;
         }
 
-        public Enum getAccessType() {
+        public AccessType getAccessType() {
             return accessType;
         }
 
@@ -36,7 +36,7 @@ public class Access {
             this.password = password;
         }
 
-        public void setAccessType(Enum accessType) {
+        public void setAccessType(AccessType accessType) {
             this.accessType = accessType;
         }
 
@@ -57,7 +57,7 @@ public class Access {
         return false;
     }
 
-    public  Boolean addUser(String login, String password, Enum accessType){
+    public  Boolean addUser(String login, String password, AccessType accessType){
         User user = new User(login,password,accessType);
         if(accessMapIsEmpty()){
             accessMap.put(login,user);
@@ -106,6 +106,13 @@ public class Access {
             throw new IllegalArgumentException();
         }
         return this.accessMap.get(login);
+    }
+    public AccessType getUserAccessType(String login, String password) throws IllegalArgumentException{
+        if(!isAccess(login,password)) {
+            throw new IllegalArgumentException();
+        }
+        User user = this.getUser(login);
+        return user.accessType;
     }
 
     public Map<String, User> getAccessMap() {

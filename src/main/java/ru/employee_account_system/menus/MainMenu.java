@@ -8,7 +8,7 @@ import ru.employee_account_system.utils.MenuUtils;
 import java.util.Scanner;
 
 public class MainMenu {
-    public static void isMainMenuPrint(Organization organization){
+    public static void isMainMenuPrint(Organization organization,Access.AccessType accessType){
         Boolean exit = false;
         while (!exit){
             Scanner in = new Scanner(System.in);
@@ -16,13 +16,13 @@ public class MainMenu {
             System.out.println();
             System.out.println("1 - Сотрудники");
             System.out.println("2 - ");
-            if(Access.AccessType.ADMIN.name().equals("ccessType")) {
+            if(Access.AccessType.ADMIN.name().equals(accessType.name())) {
                 System.out.println("3 - Пользователи");
             }
             System.out.println("4 - сменить пользователя");
             System.out.println("esc - для выхода ");
             String action = in.next();
-            if(action.equals(Constants.ESC)){
+            if(action.equals(Constants.ESC) || action.equals("4")){
                 exit = true;
             }else {
                 int menuInt = MenuUtils.stringToInt(action);
@@ -43,10 +43,6 @@ public class MainMenu {
             }
             case 3: {
                 UserMenu.userMenuPrint(accessList);
-                break;
-            }
-            case 4: {
-
                 break;
             }
             default:break;
