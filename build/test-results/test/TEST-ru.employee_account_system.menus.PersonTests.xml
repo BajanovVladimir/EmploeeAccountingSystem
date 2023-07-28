@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ru.employee_account_system.menus.PersonTests" tests="3" skipped="0" failures="0" errors="0" timestamp="2023-06-27T12:22:40" hostname="LAPTOP-OS992FP0" time="0.003">
+  <properties/>
+  <testcase name="test_that_phoneNumber_is_set()" classname="ru.employee_account_system.menus.PersonTests" time="0.001"/>
+  <testcase name="test_that_toString_is_corrected()" classname="ru.employee_account_system.menus.PersonTests" time="0.001"/>
+  <testcase name="test_that_person_is_created()" classname="ru.employee_account_system.menus.PersonTests" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
